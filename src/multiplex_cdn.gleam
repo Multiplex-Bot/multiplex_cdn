@@ -28,9 +28,6 @@ pub fn start(input: glint.CommandInput) {
   let assert Ok(data_dir) = flag.get_string(from: input.flags, for: "data")
   let assert Ok(cores) = flag.get_int(from: input.flags, for: "cores")
 
-  // FIXME: properly save/restore this
-  let secret_key_base = wisp.random_string(64)
-
   let cfg = Config(data_dir)
 
   let actors =

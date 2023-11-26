@@ -1,13 +1,9 @@
-import wisp.{type Body, type Response}
+import wisp.{type Response}
 import gleam/http.{Get, Put}
 import gleam/http/request
 import gleam/string_builder
 import gleam/list.{contains}
-import gleam/dynamic.{type Dynamic}
-import gleam/result
-import gleam/erlang/process.{type Subject}
-import gleam/otp/actor
-import gleam/io
+import gleam/dynamic
 import gleam/bit_array.{base64_decode}
 import gleam/json
 import simplifile
