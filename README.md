@@ -1,22 +1,25 @@
 # multiplex_cdn
 
-[![Package Version](https://img.shields.io/hexpm/v/multiplex_cdn)](https://hex.pm/packages/multiplex_cdn)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/multiplex_cdn/)
+the media store (that will be) used by Multiplex for pfps
 
-## Quick start
+## reasoning
 
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-gleam shell # Run an Erlang shell
-```
+i wanted the bot to be more self-dependent and also wanted to avoid dealing with things like garage & minio
 
-## Installation
+## api
 
-If available on Hex this package can be added to your Gleam project:
+you won't be accessing this directly if using the multiplex api, but if you are (for some reason) going to use the store itself, the api is very simple
 
-```sh
-gleam add multiplex_cdn
-```
+-   `PUT /[filename]`: uploads a filename; takes a json body along the lines of `{
+    "body": "[base64 encoded string of the file]",
+    "mime_type": "[mimetype of the file]"
+}`
+-   `GET /[filename]`: returns the content of a file
 
-and its documentation can be found at <https://hexdocs.pm/multiplex_cdn>.
+## todo
+
+(i should probably do most these before actually deploying)
+
+-   [ ] avoid path traversal
+-   [ ] DELETE endpoint
+-   [ ] multi-node support (just blindly replicating between nodes?)
